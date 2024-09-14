@@ -15,3 +15,13 @@ variable "server_user" {
   type        = string
   default     = "harry"
 }
+
+variable "agent_hosts" {
+  description = "list of k3s agents"
+  type = list(object({
+    host     = string
+    user     = optional(string, null)
+    password = optional(string, null)
+  }))
+  default = [null]
+}
